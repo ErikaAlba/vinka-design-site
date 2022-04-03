@@ -1,0 +1,9 @@
+parameters:
+  database_url: 'mysql://%env(MYSQL_USER)%:%env(MYSQL_PASSWORD)%@%env(MYSQL_HOST)%/%env(MYSQL_DB_NAME)%'
+
+services:
+  connection.dbal:
+    class: Doctrine\DBAL\Connection
+    factory: 'Doctrine\DBAL\DriverManager::getConnection'
+    arguments:
+      - url: '%database_url%'

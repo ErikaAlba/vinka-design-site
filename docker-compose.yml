@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+#  nginx:
+#    build:
+#      context: docker/nginx
+#    volumes:
+#      - .:/var/www/html:ro
+#    depends_on:
+#      - php
+
+  php:
+    build:
+      context: docker/php
+    volumes:
+      - .:/var/www/html
+      - ~/.composer:/.composer
+  mysql:
+    image: mysql:8.0-oracle
+    ports:
+      - ${MYSQL_PORT}:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD}
+    volumes:
+      - mysql-data:/var/lib/mysql
+volumes:
+  mysql-data:
+    driver: local
