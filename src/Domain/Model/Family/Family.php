@@ -15,11 +15,11 @@ class Family
     #[ORM\Column(type: 'string', length: 255)]
     private string $name;
 
-    public function __construct(string $familyId, string $name)
-    {
-        $this->familyId = $familyId;
-        $this->name = $name;
-    }
+//    private function __construct(string $familyId, string $name)
+//    {
+//        $this->familyId = $familyId;
+//        $this->name = $name;
+//    }
 
 
     public function familyId(): string
@@ -31,4 +31,22 @@ class Family
     {
         return $this->name;
     }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param string $familyId
+     */
+    public function setFamilyId(string $familyId): void
+    {
+        $this->familyId = $familyId;
+    }
+
+
 }

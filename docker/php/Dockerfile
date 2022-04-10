@@ -1,7 +1,7 @@
 FROM php:8.1-fpm-alpine
 
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/install-php-extensions
-RUN install-php-extensions pdo_mysql
+RUN install-php-extensions pdo_mysql intl
 
 RUN mkdir /.composer/ \
     && chown -R www-data:www-data /.composer \
