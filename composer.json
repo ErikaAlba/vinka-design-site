@@ -8,6 +8,9 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "doctrine/dbal": "^3.3",
+        "doctrine/doctrine-bundle": "^2.6",
+        "doctrine/doctrine-migrations-bundle": "^3.2",
+        "doctrine/orm": "^2.11",
         "symfony/console": "6.0.*",
         "symfony/dotenv": "6.0.*",
         "symfony/flex": "^2",
@@ -66,5 +69,8 @@
             "allow-contrib": false,
             "require": "6.0.*"
         }
+    },
+    "require-dev": {
+        "symfony/maker-bundle": "^1.38"
     }
 }
