@@ -5,8 +5,10 @@ namespace App\Domain\Model\Product;
 use App\Domain\Model\Family\Family;
 use App\Infrastructure\Repository\Product\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
+#[Vich\Uploadable]
 class Product
 {
     #[ORM\Id]
@@ -28,12 +30,33 @@ class Product
     #[ORM\Column(type: 'string', length: 255)]
     private $mainImage;
 
+    #[Vich\UploadableField(mapping: "product_images",fileNameProperty: "mainImage")]
+    private $imageFile;
 
-
+    #[ORM\Column(type: "datetime")]
+    private $updateAt;
 
     #[ORM\ManyToOne(targetEntity: Family::class)]
     #[ORM\JoinColumn(nullable: false, referencedColumnName: 'family_id')]
     private $family;
+
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($image) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
 
     public function productId(): string
     {
@@ -57,6 +80,22 @@ class Product
         $this->name = $name;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdateAt()
+    {
+        return $this->updateAt;
+    }
+
+    /**
+     * @param mixed $updateAt
+     */
+    public function setUpdateAt($updateAt): void
+    {
+        $this->updateAt = $updateAt;
     }
 
     public function description(): string

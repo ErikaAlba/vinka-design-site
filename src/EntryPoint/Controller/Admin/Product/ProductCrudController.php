@@ -15,6 +15,7 @@ use Symfony\Component\Uid\Uuid;
 
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use Symfony\Config\Twig\DateConfig;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ProductCrudController extends AbstractCrudController
 {
@@ -27,6 +28,8 @@ class ProductCrudController extends AbstractCrudController
     {
         $product = new Product();
         $product->setProductId(Uuid::v4()->jsonSerialize());
+        $product->setCreatedDate(new \DateTime());
+        $product->setUpdateAt(new \DateTime());
 
         return $product;
     }
@@ -38,11 +41,11 @@ class ProductCrudController extends AbstractCrudController
             TextField::new('name'),
             TextEditorField::new('description'),
             TextField::new('reference'),
-            DateField::new('created_date'),
             AssociationField::new('family'),
             ImageField::new('mainImage')
-                ->setBasePath('images/uploads')
-                ->setUploadDir('public/images')
+                ->setBasePath('images/products')
+                ->setUploadDir('public/images/products')
+                ->setUploadedFileNamePattern('[uuid].[extension]')
         ];
     }
 
