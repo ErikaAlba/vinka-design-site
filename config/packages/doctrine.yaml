@@ -23,8 +23,14 @@ doctrine:
                 is_bundle: false
                 type: attribute
                 dir: '%kernel.project_dir%/src/Domain/Model/Family'
-                prefix: 'App\Domain\Model'
+                prefix: 'App\Domain\Model\Family'
                 alias: Family
+            Customers:
+                is_bundle: false
+                type: attribute
+                dir: '%kernel.project_dir%/src/Domain/Model/Customers'
+                prefix: 'App\Domain\Model\Customers'
+                alias: Customers
 
 when@test:
     doctrine:

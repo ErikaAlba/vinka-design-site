@@ -2,6 +2,7 @@
 
 namespace App\EntryPoint\Controller\Admin;
 
+use App\Domain\Model\Customers\Customers;
 use App\Domain\Model\Family\Family;
 use App\Domain\Model\Product\Product;
 use App\EntryPoint\Controller\Admin\Family\FamilyCrudController;
@@ -49,6 +50,10 @@ class DashboardController extends AbstractDashboardController
             MenuItem::section('Catalog'),
             MenuItem::linkToCrud('Families','fa fa-tags',Family::class),
             MenuItem::linkToCrud('Products', 'fa fa-tags', Product::class),
+            MenuItem::section('Users'),
+            MenuItem::linkToCrud('Customers', 'fa fa-tags', Customers::class),
+
+
         ];
         //yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);

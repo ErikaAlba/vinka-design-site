@@ -25,6 +25,12 @@ class Product
     #[ORM\Column(type: 'datetime')]
     private $createdDate;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $mainImage;
+
+
+
+
     #[ORM\ManyToOne(targetEntity: Family::class)]
     #[ORM\JoinColumn(nullable: false, referencedColumnName: 'family_id')]
     private $family;
@@ -89,7 +95,7 @@ class Product
         return $this;
     }
 
-    public function family(): Family
+    public function family(): ?Family
     {
         return $this->family;
     }
@@ -100,4 +106,15 @@ class Product
 
         return $this;
     }
+
+    public function mainImage()
+    {
+        return $this->mainImage;
+    }
+
+    public function setMainImage($mainImage): void
+    {
+        $this->mainImage = $mainImage;
+    }
+
 }
