@@ -36,6 +36,13 @@ class FamilyRepository extends ServiceEntityRepository
             $this->_em->flush();
         }
     }
+     /**
+      * @return Family[] Returns an array of Family objects
+      */
+    public function all():array
+    {
+        return $this->findAll();
+    }
 
     // /**
     //  * @return Family[] Returns an array of Family objects

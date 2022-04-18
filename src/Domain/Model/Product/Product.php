@@ -36,6 +36,10 @@ class Product
     #[ORM\Column(type: "datetime")]
     private $updateAt;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $slug;
+
+
     #[ORM\ManyToOne(targetEntity: Family::class)]
     #[ORM\JoinColumn(nullable: false, referencedColumnName: 'family_id')]
     private $family;
@@ -154,6 +158,22 @@ class Product
     public function setMainImage($mainImage): void
     {
         $this->mainImage = $mainImage;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param mixed $slug
+     */
+    public function setSlug($slug): void
+    {
+        $this->slug = $slug;
     }
 
 }
