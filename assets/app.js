@@ -15,4 +15,7 @@ import './styles/bootstrap.bundle.min.js';
 import './bootstrap';
 
 import './styles/custom.js'
-
+import './styles/ui.css'
+import './styles/responsive.css'
+import './styles/bootstrap.css'
+import './styles/fonts/fontawesome/css/all.min.css'

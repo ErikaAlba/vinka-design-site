@@ -6,17 +6,58 @@
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
+    <!-- ============== SECTION CONTENT  ============== -->
+    <section class="padding-y bg-light" style="min-height:90vh">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <!-- =========== COMPONENT LOGIN =========== -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="mb-4">Iniciar sesi&oacute;n</h4>
+                            <form action="{{ path('app_login') }}" method="post">
+                                <div class="mb-3">
+                                    <label for="username" class="form-label">Email</label>
+                                    <input class="form-control"
+                                           placeholder="ex. name@gmail.com"
+                                           type="email" id="username"
+                                           name="_username"
+                                           value="{{ last_username }}">
+                                </div> <!-- col end.// -->
 
-    <form action="{{ path('app_login') }}" method="post">
-        <label for="username">Email:</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}"/>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Contraseña</label>
+                                    <a class="float-end" href="#">Olvide mi contraseña</a>
+                                    <input class="form-control"
+                                           placeholder="Introduce tu contraseña"
+                                           type="password"
+                                           id="password"
+                                           name="_password">
+                                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                                </div> <!-- col end.// -->
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password"/>
+                                <div class="mb-3">
+                                    <label class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" checked>
+                                        <span class="form-check-label"> Remember </span>
+                                    </label>
+                                </div>
 
-        {# If you want to control the URL the user is redirected to on success
-        <input type="hidden" name="_target_path" value="/account"/> #}
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-        <button type="submit">login</button>
-    </form>
+                                <button class="btn w-100 btn-primary" type="submit"> Iniciar sesi&oacute;n </button>
+
+                            </form> <!-- form end.// -->
+
+                            <p class="text-divider my-4">¿Nuevo usuario?</p>
+                            <a href="{{ path('app_register') }}" class="btn w-100 btn-light">Crea una cuenta</a>
+
+                        </div> <!-- card-body end.// -->
+                    </div> <!-- card end.// -->
+                    <!-- ============= COMPONENT LOGIN  END.// ============= -->
+                    <br><br>
+                </div>
+            </div>
+        </div> <!-- container .//  -->
+    </section>
+    <!-- ============== SECTION CONTENT END// ============== -->
+
 {% endblock %}

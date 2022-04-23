@@ -3,15 +3,48 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+    <!-- ============== SECTION CONTENT  ============== -->
+    <section class="padding-y bg-light" style="min-height:90vh">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <!-- =========== COMPONENT LOGIN =========== -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="mb-4">Registrarse</h4>
+                            {{ form_start(registrationForm) }}
+                                <div class="mb-3">
+                                    {{ form_row(registrationForm.email) }}
+                                </div> <!-- col end.// -->
+                                <div class="mb-3">
+                                    {{ form_row(registrationForm.plainPassword, {
+                                        label: 'Crear contraseña'
+                                    }) }}
+                                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                                </div> <!-- col end.// -->
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+                                <div class="mb-3">
+                                    <label class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" checked>
+                                        <span class="form-check-label"> Remember </span>
+                                    </label>
+                                </div>
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+                                <button class="btn w-100 btn-primary" type="submit"> Registrarse </button>
+
+                            {{ form_end(registrationForm) }} <!-- form end.// -->
+
+                            <p class="text-divider my-4">¿Ya tienes cuenta?</p>
+                            <a href="{{ path('app_login') }}" class="btn w-100 btn-light">Iniciar sesi&oacute;n</a>
+
+                        </div> <!-- card-body end.// -->
+                    </div> <!-- card end.// -->
+                    <!-- ============= COMPONENT LOGIN  END.// ============= -->
+                    <br><br>
+                </div>
+            </div>
+        </div> <!-- container .//  -->
+    </section>
+    <!-- ============== SECTION CONTENT END// ============== -->
+
 {% endblock %}
