@@ -17,6 +17,66 @@
         <script src="https://kit.fontawesome.com/a31fc29a76.js" crossorigin="anonymous"></script>
     </head>
     <body>
+
+        <header class="section-header border-bottom">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container">
+                    <a class="navbar-brand" href="http://bootstrap-ecommerce.com">
+                        <img src="images/menuImages/logoV.png" alt="logo vinka-design" height="40" class="logo">
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_main" aria-controls="navbar_main" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse"  id="navbar_main">
+                        <ul class="navbar-nav ms-auto me-sm-2 mt-2 mt-lg-0">
+                            <li class="nav-item  me-2 active">
+                                <a class="nav-link" href="#"> Inicio
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+{#                            {% for family in families %}#}
+{#                                <li class="nav-item">#}
+{#                                    <a href="#" class="nav-link">{{ family.name }}</a>#}
+{#                                </li>#}
+{#                            {% endfor %}#}
+                            <li class="nav-item me-2">
+                                <a class="nav-link" href="#">Tocados</a>
+                            </li>
+                            <li class="nav-item me-2">
+                                <a class="nav-link" href="#">Pamelas</a>
+                            </li>
+                            <li class="nav-item me-2">
+                                <a class="nav-link" href="#">Pajaritas</a>
+                            </li>
+                        </ul>
+
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link py-0 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="icon-xs bg-gray rounded-circle me-2"><i class="fa fa-user"></i> </span>
+                                    <span>Profile</span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+{#                                        <p>Email: {{ app.user.email }}</p>#}
+                                        <li> <a href="{{ path('app_logout') }}" class="dropdown-item">Cerrar sesion</a> </li>
+                                        {% else %}
+                                            <li> <a href="{{ path('app_login') }}" class="dropdown-item">Iniciar sesion</a> </li>
+                                            <li> <a href="{{ path('app_register') }}"class="dropdown-item">Registrarse</a> </li>
+                                    {% endif %}
+                                </ul>
+                            </li>
+                        </ul>
+                        <a data-bs-toggle="offcanvas" href="#offcanvas_cart" class="ms-md-2 btn btn-primary">
+                            <i class="fa me-1 fa-shopping-cart"></i> Carrito
+                        </a>
+                    </div>
+
+                </div>
+            </nav> <!-- navbar end.// -->
+        </header> <!-- section-header end.// -->
         {% block body %}{% endblock %}
         <footer class="section-footer border-top padding-y">
             <div class="container">
