@@ -14,4 +14,5 @@ import './styles/bootstrap.bundle.min.js';
 // start the Stimulus application
 import './bootstrap';
 
+import './styles/custom.js'
 

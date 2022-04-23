@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProdructPageController!{% endblock %}
+
+{% block body %}
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="main-search-input-wrap">
+                    <div class="main-search-input fl-wrap">
+                        <div class="main-search-input-item"> <input type="text" value="" placeholder="Search Products..."> </div> <button class="main-search-button">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col bg-dark">
+                <img class="img-fluid" src="/images/products/{{ product.mainImage }}" alt="{{ product.name }}">
+            </div>
+            <div class="col bg-dark text-white">
+                <h1 class="mt-3 text-center text-capitalize">{{ product.name }}</h1>
+                <p class="text-center">precio</p>
+                <span>{{ product.description|raw }}</span>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-2">
+                        <p class="m-0">COLOR</p>
+                        <input class="form-check-input" type="checkbox" checked="checked">
+                    </div>
+                    <div class="col-4">
+                        <p class="m-0">TAMAÑO</p>
+                        <input class="text-center "  type="text" name="number" value="Talla única" disabled="disabled" />
+                    </div>
+                </div>
+                <div class="row mt-3 justify-content-center">
+                    <div class="col-4 text-center">
+                            <button
+                                    class="btn btn-light"
+                                    type="button"
+                                    id="minusButton"
+                                    name="button"
+                            >
+                                -
+                            </button>
+                            <input class="text-center " id="number" type="text" name="number" value="0" />
+                            <button
+                                    class="btn btn-light"
+                                    type="button"
+                                    id="plusButton"
+                                    name="button"
+                            >
+                                +
+                            </button>
+                    </div>
+                    <div class="col-5 text-center mt-1">
+                        <button id="carrito">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>AÑADIR CARRITO</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}
