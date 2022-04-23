@@ -1,6 +1,6 @@
-#VINKA DESIGN PROJECT
+# VINKA DESIGN PROJECT
 Este es mi proyecto de fin de curso de desarrollo de aplicaciones web.
-###Para ejecutar el proyecto:
+### Para ejecutar el proyecto:
 Aplicaciones necesarias
 ``` 
 - docker 
