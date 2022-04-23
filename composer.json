@@ -19,8 +19,10 @@
         "symfony/mime": "6.0.*",
         "symfony/proxy-manager-bridge": "6.0.*",
         "symfony/runtime": "6.0.*",
+        "symfony/security-bundle": "6.0.*",
         "symfony/webpack-encore-bundle": "^1.14",
         "symfony/yaml": "6.0.*",
+        "symfonycasts/verify-email-bundle": "^1.10",
         "vich/uploader-bundle": "^1.19"
     },
     "config": {
@@ -75,6 +77,8 @@
         }
     },
     "require-dev": {
-        "symfony/maker-bundle": "^1.38"
+        "symfony/maker-bundle": "^1.38",
+        "symfony/stopwatch": "6.0.*",
+        "symfony/web-profiler-bundle": "6.0.*"
     }
 }

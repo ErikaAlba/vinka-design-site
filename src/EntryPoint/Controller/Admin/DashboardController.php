@@ -51,7 +51,7 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Families','fa fa-tags',Family::class),
             MenuItem::linkToCrud('Products', 'fa fa-tags', Product::class),
             MenuItem::section('Users'),
-            MenuItem::linkToCrud('Customers', 'fa fa-tags', Customers::class),
+
 
 
         ];
