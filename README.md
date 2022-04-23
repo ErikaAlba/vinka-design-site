@@ -12,6 +12,8 @@ Para ejecutar el proyecto
 - docker-compose build
 - docker-compose up -d
 - docker-compose exec -u ${UID}:${GID} php composer install
+- docker-compose exec -u ${UID}:${GID} php console doctrine:database:create
+- docker-compose exec -u ${UID}:${GID} php console doctrine:migrations:migrate
 - npm run build
 ```
 Para acceder con el navegador 
