@@ -3,68 +3,115 @@
 {% block title %}Hello ProdructPageController!{% endblock %}
 
 {% block body %}
+<div class="container">
+    <div class="row">
+        <!-- =================== COMPONENT =================== -->
+        <section class="padding-y bg-white shadow-sm">
+            <div class="container">
+                <div class="row">
+                    <aside class="col-lg-6">
+                        <article class="gallery-wrap gallery-vertical">
+                            <a href="#" class="img-big-wrap img-thumbnail  bg-gray-light">
+                                <img height="520" src="/images/products/{{ product.mainImage }}" alt="{{ product.name }}" class="mix-blend-multiply">
+                            </a> <!-- img-big-wrap.// -->
+                            <div class="thumbs-wrap mb-3">
+                                <a href="#" class="item-thumb">
+                                    <img width="60" height="60" src="../images/items/detail2/thumb1.jpg">
+                                </a>
+                                <a href="#" class="item-thumb">
+                                    <img width="60" height="60" src="../images/items/detail2/thumb2.jpg">
+                                </a>
+                                <a href="#" class="item-thumb">
+                                    <img width="60" height="60" src="../images/items/detail2/thumb3.jpg">
+                                </a>
+                                <a href="#" class="item-thumb">
+                                    <img width="60" height="60" src="../images/items/detail2/thumb4.jpg">
+                                </a>
+                                <a href="#" class="item-thumb">
+                                    <img width="60" height="60" src="../images/items/detail2/thumb1.jpg">
+                                </a>
+                                <a href="#" class="item-thumb">
+                                    <img width="60" height="60" src="../images/items/detail2/thumb2.jpg">
+                                </a>
+                                <a href="#" class="item-thumb">
+                                    <img width="60" height="60" src="../images/items/detail2/thumb3.jpg">
+                                </a>
+                            </div> <!-- thumbs-wrap.// -->
+                        </article> <!-- gallery-wrap .end// -->
+                    </aside>
+                    <main class="col-lg-6">
+                        <article class="ps-lg-3">
+                            <h4 class="title text-dark text-capitalize">{{ product.name }} <br> Layer Slim Muscle</h4>
 
+                            <div class="rating-wrap my-3">
+                                <ul class="rating-stars">
+                                    <li style="width:80%" class="stars-active"> <img src="../images/misc/stars-active.svg" alt=""> </li>
+                                    <li> <img src="../images/misc/starts-disable.svg" alt=""> </li>
+                                </ul>
+                                <b class="label-rating text-warning"> 4.5</b>
+                                <i class="dot"></i>
+                                <span class="label-rating text-muted"> <i class="fa fa-comment"></i> 32 reviews </span>
+                                <i class="dot"></i>
+                                <span class="label-rating text-muted"> <i class="fa fa-shopping-basket"></i> 154 orders</span>
+                            </div> <!-- rating-wrap.// -->
+                            <hr>
+                            <ul class="list-check cols-two mb-4">
+                                <li>{{ product.description|raw }}</li>
+                                <li>Talla &uacute;nica</li>
+                            </ul>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="main-search-input-wrap">
-                    <div class="main-search-input fl-wrap">
-                        <div class="main-search-input-item"> <input type="text" value="" placeholder="Search Products..."> </div> <button class="main-search-button">Search</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+                            <div class="mb-3">
+                                <label class="text-muted mb-2">Colores</label>
+                                <div>
+                                    <label class="checkbox-btn">
+                                        <input type="radio" name="choose_22"> <span class="btn btn-light"> Orange </span>
+                                    </label>
 
-        <div class="row mt-5">
-            <div class="col bg-dark">
-                <img class="img-fluid" src="/images/products/{{ product.mainImage }}" alt="{{ product.name }}">
-            </div>
-            <div class="col bg-dark text-white">
-                <h1 class="mt-3 text-center text-capitalize">{{ product.name }}</h1>
-                <p class="text-center">precio</p>
-                <span>{{ product.description|raw }}</span>
-                <div class="row justify-content-center mt-3">
-                    <div class="col-2">
-                        <p class="m-0">COLOR</p>
-                        <input class="form-check-input" type="checkbox" checked="checked">
-                    </div>
-                    <div class="col-4">
-                        <p class="m-0">TAMAÑO</p>
-                        <input class="text-center "  type="text" name="number" value="Talla única" disabled="disabled" />
-                    </div>
-                </div>
-                <div class="row mt-3 justify-content-center">
-                    <div class="col-4 text-center">
-                            <button
-                                    class="btn btn-light"
-                                    type="button"
-                                    id="minusButton"
-                                    name="button"
-                            >
-                                -
-                            </button>
-                            <input class="text-center " id="number" type="text" name="number" value="0" />
-                            <button
-                                    class="btn btn-light"
-                                    type="button"
-                                    id="plusButton"
-                                    name="button"
-                            >
-                                +
-                            </button>
-                    </div>
-                    <div class="col-5 text-center mt-1">
-                        <button id="carrito">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span>AÑADIR CARRITO</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
+                                    <label class="checkbox-btn">
+                                        <input type="radio" name="choose_22"> <span class="btn btn-light"> Green </span>
+                                    </label>
 
-        </div>
+                                    <label class="checkbox-btn">
+                                        <input type="radio" name="choose_22"> <span class="btn btn-light"> Black </span>
+                                    </label>
 
+                                    <label class="checkbox-btn">
+                                        <input type="radio" name="choose_22"> <span class="btn btn-light"> White </span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <var class="price h5">98.00€</var>
+                                <span>/ IVA incluido </span>
+                            </div> <!-- price-wrap.// -->
+
+                            <div class="row gx-2 mb-4">
+                                <div class="col-2">
+                                    <select class="form-select">
+                                        <option> 1 </option>
+                                        <option> 2 </option>
+                                        <option> 3 </option>
+                                    </select>
+                                </div> <!-- col.// -->
+                                <div class="col-auto">
+                                    <a href="#" class="btn btn-primary w-100"> <i class="me-2 fa fa-shopping-basket"></i>  Añadir al carrito  </a>
+                                </div> <!-- col.// -->
+                                <div class="col">
+                                    <a href="#" class="btn btn-light btn-icon"> <i class="fas fa-heart"></i>  </a>
+                                </div> <!-- col.// -->
+                            </div> <!-- row.// -->
+
+                        </article>
+                    </main> <!-- col.// -->
+                </div> <!-- row.// -->
+            </div> <!-- container .//  -->
+        </section>
+        <!-- ====================== COMPONENT 2 END .// ===================== -->
     </div>
+</div>
+
+
+
 
 {% endblock %}

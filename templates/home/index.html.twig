@@ -6,7 +6,7 @@
 
     <div class="container">
         <!--CARROUSEL -->
-        <div class="row justify-content-center">
+        <div class="row mt-5 mb-5 justify-content-center">
             <div class="col-12">
                 <div class="carousel slide" id="mi-carousel" data-bs-ride="carousel">
                     <div class="carousel-inner" role="listbox">
@@ -20,7 +20,6 @@
                             <img class="img-fluid w-100" src="images/carrousel/tocadoPortada.jpg" alt="imagen 3">
                         </div>
                     </div>
-
                     <!-- Controles my-4 mx-4-->
                     <button class="carousel-control-prev" type="button" data-bs-target="#mi-carousel"
                             data-bs-slide="prev">
@@ -47,11 +46,19 @@
             </div>
         </div>
         <!--TOCADOS -->
-        <!-- ===================== COMPONENTS 2  ========================== -->
+        <!-- ===================== COMPONENTS ========================== -->
+        <article class="card p-4 mt-5 mb-5">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h4 class="mb-0 text-black">Tocados</h4>
+                    <p class="mb-0 text-black-50">Trendy products and text to build on the card title</p>
+                </div>
+                <div class="col-auto"> <a class="btn btn-gray" href="#">Ver todo</a> </div>
+            </div>
+        </article>
         <div class="row">
             {% for tocado in tocados %}
                 <div class="col-lg-3 col-sm-6 col-12">
-                    <h1>TOCADOS</h1>
                     <figure class="card card-product-grid">
                         <a href="{{ path('app_product_page', {'slug': tocado.slug}) }}" class="img-wrap">
                             <img src="images/products/{{ tocado.mainImage }}" alt="{{ tocado.name }}">
@@ -71,11 +78,19 @@
                 </div> <!-- col.// -->
             {% endfor %}
         </div> <!-- row.// -->
-        <!-- ====================== COMPONENTS 2  END .//======================= -->
+        <!-- ====================== COMPONENTS END .//======================= -->
         <!--PAMELAS -->
-        <!-- ===================== COMPONENTS 5  ======================== -->
+        <article class="card p-4 mt-5 mb-5">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h4 class="mb-0 text-black">Pamelas</h4>
+                    <p class="mb-0 text-black-50">Trendy products and text to build on the card title</p>
+                </div>
+                <div class="col-auto"> <a class="btn btn-gray" href="#">Ver todo</a> </div>
+            </div>
+        </article>
+        <!-- ===================== COMPONENTS ======================== -->
         <div class="row">
-            <h1>Pamelas</h1>
             {% for pamela in pamelas %}
                 <div class="col-lg-3 col-sm-6 col-12">
                     <figure class="card card-product-grid">
@@ -110,10 +125,18 @@
                 </div> <!-- col.// -->
             {% endfor %}
         </div> <!-- row.// -->
-        <!-- ================== COMPONENTS 5  END .// ======================== -->
+        <!-- ================== COMPONENTS END .// ======================== -->
         <!--PAJARITAS -->
+        <article class="card p-4 mt-5 mb-5">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h4 class="mb-0 text-black text-center">Pajaritas</h4>
+                    <p class=" text-center mb-0 text-black-50">Trendy products and text to build on the card title</p>
+                </div>
+                <div class="col-auto"> <a class="btn btn-gray" href="#">Ver todo</a> </div>
+            </div>
+        </article>
         <div class="card card-body">
-            <h1 class="text-center">PAJARITAS</h1>
             <div class="row gy-3 gx-1 gx-md-3">
                 {% for pajarita in pajaritas %}
                     <div class="col-xl col-lg-3 col-6">
