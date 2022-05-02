@@ -1,0 +1,173 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AddItemController!{% endblock %}
+
+{% block body %}
+    <section class="padding-y bg-light">
+        <div class="container">
+
+            <!-- =================== COMPONENT CART+SUMMARY ====================== -->
+            <div class="row">
+                <div class="col-lg-9">
+
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h5 class="card-title mb-4">Shopping cart</h5>
+
+                            <article class="row gy-3  mb-4">
+                                <div class="col-lg-6">
+                                    <figure class="itemside  me-lg-5">
+                                        <div class="aside"><img src="../images/items/1.jpg" class="img-sm border rounded"></div>
+                                        <figcaption class="info">
+                                            <a href="#" class="title mb-1"></a>
+                                            <p class="text-muted small"> Color: Black, Zoom: 80x  </p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                                <div class="col-auto">
+                                    <select style="width: 100px" class="form-select">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-2 col-sm-4 col-6">
+                                    <div class="price-wrap lh-sm">
+                                        <var class="price h6">$1156.00</var>  <br>
+                                        <small class="text-muted"> $460.00 / per item </small>
+                                    </div> <!-- price-wrap .// -->
+                                </div>
+                                <div class="col-lg col-sm-4">
+                                    <div class="float-lg-end">
+                                        <a href="#" class="btn btn-light"> <i class="fa fa-heart"></i></a>
+                                        <a href="#" class="btn btn-light text-danger"> Remove</a>
+                                    </div>
+                                </div>
+                            </article> <!-- row.// -->
+
+                            <article class="row gy-3 mb-4">
+                                <div class="col-lg-6">
+                                    <figure class="itemside  me-lg-5">
+                                        <div class="aside"><img src="../images/items/2.jpg" class="img-sm border rounded"></div>
+                                        <figcaption class="info">
+                                            <a href="#" class="title mb-1">Canon Cmera EOS 2000, Black color 10x zoom</a>
+                                            <p class="text-muted small"> Color: Black, Memory: 512GB </p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                                <div class="col-auto">
+                                    <select style="width: 100px" class="form-select">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-2 col-sm-4 col-6">
+                                    <div class="price-wrap lh-sm">
+                                        <var class="price h6">$1156.00</var>  <br>
+                                        <small class="text-muted"> $460.00 / per item </small>
+                                    </div> <!-- price-wrap .// -->
+                                </div>
+                                <div class="col-lg col-sm-4">
+                                    <div class="float-lg-end">
+                                        <a href="#" class="btn btn-light"> <i class="fa fa-heart"></i></a>
+                                        <a href="#" class="btn btn-light text-danger"> Remove</a>
+                                    </div>
+                                </div>
+                            </article> <!-- row.// -->
+
+                            <article class="row gy-3 mb-4">
+                                <div class="col-lg-6">
+                                    <figure class="itemside  me-lg-5">
+                                        <div class="aside"><img src="../images/items/3.jpg" class="img-sm border rounded"></div>
+                                        <figcaption class="info">
+                                            <a href="#" class="title mb-1"></a>
+                                            <p class="text-muted small"> Color: Black, Memory: 512GB </p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                                <div class="col-auto">
+                                    <select style="width: 100px" class="form-select">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-2 col-sm-4 col-6">
+                                    <div class="price-wrap lh-sm">
+                                        <var class="price h6">$1156.00</var>  <br>
+                                        <small class="text-muted"> $460.00 / per item </small>
+                                    </div> <!-- price-wrap .// -->
+                                </div>
+                                <div class="col-lg col-sm-4">
+                                    <div class="float-lg-end">
+                                        <a href="#" class="btn btn-light"> <i class="fa fa-heart"></i></a>
+                                        <a href="#" class="btn btn-light text-danger"> Remove</a>
+                                    </div>
+                                </div>
+                            </article> <!-- row.// -->
+
+                        </div> <!-- card-body .// -->
+
+                        <div class="card-body border-top">
+                            <p class="mb-0"><i class="me-2 text-success fa fa-truck"></i> Free Delivery within 1-2 weeks</p>
+                        </div> <!-- card-body.// -->
+
+                    </div> <!-- card.// -->
+
+                </div> <!-- col.// -->
+                <aside class="col-lg-3">
+
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <form>
+                                <label class="form-label">Have coupon?</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="" placeholder="Coupon code">
+                                    <button class="btn btn-light">Apply</button>
+                                </div>
+                            </form>
+                        </div> <!-- card-body.// -->
+                    </div> <!-- card.// -->
+
+                    <div class="card">
+                        <div class="card-body">
+                            <dl class="dlist-align">
+                                <dt>Total price:</dt>
+                                <dd class="text-end"> $1403.97</dd>
+                            </dl>
+                            <dl class="dlist-align">
+                                <dt>Discount:</dt>
+                                <dd class="text-end text-success"> - $60.00 </dd>
+                            </dl>
+                            <dl class="dlist-align">
+                                <dt>TAX:</dt>
+                                <dd class="text-end text-danger"> + $14.00 </dd>
+                            </dl>
+                            <hr>
+                            <dl class="dlist-align">
+                                <dt>Total:</dt>
+                                <dd class="text-end text-dark h5"> $1357.97 </dd>
+                            </dl>
+
+                            <div class="d-grid gap-2 my-3">
+                                <a href="#" class="btn btn-primary w-100"> Pagar </a>
+                                <a href="{{ path('app_home') }}" class="btn btn-light w-100"> Seguir comprando </a>
+                            </div>
+                        </div> <!-- card-body.// -->
+                    </div> <!-- card.// -->
+
+                </aside> <!-- col.// -->
+
+            </div> <!-- row.// -->
+            <!-- =================== COMPONENT 1 CART+SUMMARY .//END  ====================== -->
+
+            </div> <!-- row.// -->
+
+        </div> <!-- container .//  -->
+    </section>
+{% endblock %}

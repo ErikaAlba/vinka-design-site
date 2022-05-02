@@ -68,7 +68,7 @@
                         </a>
                         <figcaption class="info-wrap border-top">
                             <a href="#" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-                            <a href="#" class="title text-truncate text-capitalize">{{ tocado.name }}</a>
+                            <a href="{{ path('app_product_page', {'slug': tocado.slug}) }}" class="title text-truncate text-capitalize">{{ tocado.name }}</a>
                             <small class="text-muted">Talla &uacute;nica</small>
                             <div class="price-wrap">
                                 <strong class="price">$75.50</strong>
@@ -94,9 +94,11 @@
             {% for pamela in pamelas %}
                 <div class="col-lg-3 col-sm-6 col-12">
                     <figure class="card card-product-grid">
-                        <div class="img-wrap">
-                            <img src="images/products/{{ pamela.mainImage }}" alt="{{ pamela.name }}">
-                        </div>
+                        <a href="{{ path('app_product_page', {'slug': pamela.slug}) }}">
+                            <div class="img-wrap">
+                                <img src="images/products/{{ pamela.mainImage }}" alt="{{ pamela.name }}">
+                            </div>
+                        </a>
                         <figcaption class="info-wrap">
                             <span class="text-muted text-capitalize">{{ pamela.name }}</span>
                             <div class="rating-wrap">
@@ -140,7 +142,7 @@
             <div class="row gy-3 gx-1 gx-md-3">
                 {% for pajarita in pajaritas %}
                     <div class="col-xl col-lg-3 col-6">
-                        <a href="#" class="card-product-grid mb-0">
+                        <a href="{{ path('app_product_page', {'slug': pajarita.slug}) }}" class="card-product-grid mb-0">
                             <div class="img-wrap">
                                 <img class="img-thumbnail"
                                      src="images/products/{{ pajarita.mainImage }}"

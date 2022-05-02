@@ -2,9 +2,9 @@
 
 namespace App\EntryPoint\Controller\Admin;
 
-use App\Domain\Model\Customers\Customers;
 use App\Domain\Model\Family\Family;
 use App\Domain\Model\Product\Product;
+use App\Domain\Model\Product\ProductImage;
 use App\EntryPoint\Controller\Admin\Family\FamilyCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -20,10 +20,10 @@ class DashboardController extends AbstractDashboardController
     {
         //return parent::index();
 
-         //Option 1. You can make your dashboard redirect to some common page of your backend
+        //Option 1. You can make your dashboard redirect to some common page of your backend
 
-         $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
-         return $this->redirect($adminUrlGenerator->setController(FamilyCrudController::class)->generateUrl());
+        $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
+        return $this->redirect($adminUrlGenerator->setController(FamilyCrudController::class)->generateUrl());
 
         // Option 2. You can make your dashboard redirect to different pages depending on the user
         //
@@ -50,6 +50,7 @@ class DashboardController extends AbstractDashboardController
             MenuItem::section('Catalog'),
             MenuItem::linkToCrud('Families','fa fa-tags',Family::class),
             MenuItem::linkToCrud('Products', 'fa fa-tags', Product::class),
+            MenuItem::linkToCrud('Product images', 'fa fa-tags', ProductImage::class),
             MenuItem::section('Users'),
 
 

@@ -4,7 +4,10 @@ namespace App\Domain\Model\Product;
 
 use App\Domain\Model\Family\Family;
 use App\Infrastructure\Repository\Product\ProductRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Entity\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
@@ -39,10 +42,20 @@ class Product
     #[ORM\Column(type: 'string', length: 255)]
     private $slug;
 
-
     #[ORM\ManyToOne(targetEntity: Family::class)]
     #[ORM\JoinColumn(nullable: false, referencedColumnName: 'family_id')]
     private $family;
+
+    #[ORM\OneToMany(mappedBy: 'product', targetEntity: ProductImage::class)]
+    private $productImages;
+
+    #[ORM\Column(type: 'integer')]
+    private $price;
+
+    public function __construct()
+    {
+        $this->productImages = new ArrayCollection();
+    }
 
     public function setImageFile(File $image = null)
     {
@@ -174,6 +187,55 @@ class Product
     public function setSlug($slug): void
     {
         $this->slug = $slug;
+    }
+
+    /**
+     * @return Collection<int, ProductImage>
+     */
+    public function getProductImages(): Collection
+    {
+        return $this->productImages;
+    }
+
+    public function addProductImage(ProductImage $productImage): self
+    {
+        if (!$this->productImages->contains($productImage)) {
+            $this->productImages[] = $productImage;
+            $productImage->setProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProductImage(ProductImage $productImage): self
+    {
+        if ($this->productImages->removeElement($productImage)) {
+            // set the owning side to null (unless already changed)
+            if ($productImage->getProduct() === $this) {
+                $productImage->setProduct(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return \sprintf(
+            '%s - %s',
+            $this->name,
+            $this->productId,
+        );
+    }
+
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    public function setPrice($price): void
+    {
+        $this->price = $price;
     }
 
 }

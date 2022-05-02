@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Component\Uid\Uuid;
@@ -46,7 +47,8 @@ class ProductCrudController extends AbstractCrudController
                 ->setBasePath('images/products')
                 ->setUploadDir('public/images/products')
                 ->setUploadedFileNamePattern('[uuid].[extension]'),
-            TextField::new('slug')
+            TextField::new('slug'),
+            MoneyField::new('price')->setCurrency('EUR')->setStoredAsCents()
         ];
     }
 
