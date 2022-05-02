@@ -1,31 +1,31 @@
 <?php
 
-namespace App\Infrastructure\Repository\CartLines;
+namespace App\Infrastructure\Repository\Cart;
 
-use App\Domain\Model\CartLines\CartLines;
+use App\Domain\Model\Cart\Cart;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method CartLines|null find($id, $lockMode = null, $lockVersion = null)
- * @method CartLines|null findOneBy(array $criteria, array $orderBy = null)
- * @method CartLines[]    findAll()
- * @method CartLines[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Cart|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Cart|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Cart[]    findAll()
+ * @method Cart[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class CartLinesRepository extends ServiceEntityRepository
+class CartRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, CartLines::class);
+        parent::__construct($registry, Cart::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(CartLines $entity, bool $flush = true): void
+    public function add(Cart $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -37,7 +37,7 @@ class CartLinesRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(CartLines $entity, bool $flush = true): void
+    public function remove(Cart $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -46,7 +46,7 @@ class CartLinesRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return CartLines[] Returns an array of CartLines objects
+    //  * @return Cart[] Returns an array of Cart objects
     //  */
     /*
     public function findByExampleField($value)
@@ -63,7 +63,7 @@ class CartLinesRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?CartLines
+    public function findOneBySomeField($value): ?Cart
     {
         return $this->createQueryBuilder('c')
             ->andWhere('c.exampleField = :val')
@@ -73,4 +73,8 @@ class CartLinesRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findById(string $id): ?Cart
+    {
+        return $this->find($id);
+    }
 }

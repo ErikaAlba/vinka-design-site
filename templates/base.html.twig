@@ -21,7 +21,7 @@
         <header class="section-header border-bottom">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container">
-                    <a class="navbar-brand" href="http://bootstrap-ecommerce.com">
+                    <a class="navbar-brand" href="{{ path('app_home') }}">
                         <img src="/images/menuImages/logoV.png" alt="logo vinka-design" height="40" class="logo">
                     </a>
 
@@ -69,7 +69,7 @@
                                 </ul>
                             </li>
                         </ul>
-                        <a data-bs-toggle="offcanvas" href="{{ path('app_add_item') }}" class="ms-md-2 btn btn-primary">
+                        <a href="{{ path('app_add_item') }}" class="ms-md-2 btn btn-primary">
                             <i class="fa me-1 fa-shopping-cart"></i> Carrito
                         </a>
                     </div>
