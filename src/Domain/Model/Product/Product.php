@@ -233,6 +233,9 @@ class Product
         return $this->price;
     }
 
+    public function priceInDecimal(){
+        return $this->price/100;
+    }
     public function setPrice($price): void
     {
         $this->price = $price;

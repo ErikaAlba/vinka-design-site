@@ -75,4 +75,36 @@ class Cart
 
         return $this;
     }
+
+    public function totalProductPrice(): float
+    {
+        $totalPrice = 0;
+        foreach ($this->getCartLines() as $line) {
+            $totalPrice += $line->getProduct()->priceInDecimal();
+        }
+        return $totalPrice;
+    }
+
+    public function shippingCost(): float
+    {
+        if($this->cartLines->isEmpty() == true){
+            return 0.0;
+        }
+        return 5.0; //default shippingCost
+    }
+
+    public  function totalPrice(): float
+    {
+        return $this->totalProductPrice() + $this->shippingCost();
+    }
+
+    public function getCarlineById(string $lineId): ?CartLine
+    {
+        foreach ($this->getCartLines() as $line){
+            if ($line->getId() == $lineId){
+                return $line;
+            }
+        }
+        return null;
+    }
 }

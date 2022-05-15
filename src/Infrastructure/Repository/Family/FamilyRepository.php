@@ -39,7 +39,7 @@ class FamilyRepository extends ServiceEntityRepository
      /**
       * @return Family[] Returns an array of Family objects
       */
-    public function all():array
+    public function all(): array
     {
         return $this->findAll();
     }

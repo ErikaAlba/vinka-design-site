@@ -49,6 +49,18 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Domain/Model/Cart'
                 prefix: 'App\Domain\Model\Cart'
                 alias: CartLine
+            Order:
+                is_bundle: false
+                type: attribute
+                dir: '%kernel.project_dir%/src/Domain/Model/Order'
+                prefix: 'App\Domain\Model\Order'
+                alias: Order
+            OrderLines:
+                is_bundle: false
+                type: attribute
+                dir: '%kernel.project_dir%/src/Domain/Model/Order'
+                prefix: 'App\Domain\Model\Order'
+                alias: OrderLines
 
 when@test:
     doctrine:

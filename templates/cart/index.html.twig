@@ -13,15 +13,18 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <h5 class="card-title mb-4">Shopping cart</h5>
-
+                            <h5 class="card-title mb-4">Productos añadidos</h5>
+                            {% if cart.cartLines.empty == true %}
+                                <p class="text-center text-muted"> El carrito est&aacute; vac&iacute;o </p>
+                            {% endif%}
+                            {# @var line \App\Domain\Model\Cart\CartLine #}
+                            {% for line in cart.cartLines %}
                             <article class="row gy-3  mb-4">
                                 <div class="col-lg-6">
                                     <figure class="itemside  me-lg-5">
-                                        <div class="aside"><img src="../images/items/1.jpg" class="img-sm border rounded"></div>
+                                        <div class="aside"><img src="/images/products/{{ line.product.mainImage }}" alt="{{line.product.name}}" class="img-sm border rounded"></div>
                                         <figcaption class="info">
-                                            <a href="#" class="title mb-1"></a>
-                                            <p class="text-muted small"> Color: Black, Zoom: 80x  </p>
+                                            <p class="text-muted small">{{ line.product.name }}</p>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -35,127 +38,53 @@
                                 </div>
                                 <div class="col-lg-2 col-sm-4 col-6">
                                     <div class="price-wrap lh-sm">
-                                        <var class="price h6">$1156.00</var>  <br>
-                                        <small class="text-muted"> $460.00 / per item </small>
+                                        <var class="price h6">{{ line.product.priceInDecimal }} €</var><br>
+                                        <small class="text-muted"> IVA incluido</small>
                                     </div> <!-- price-wrap .// -->
                                 </div>
                                 <div class="col-lg col-sm-4">
                                     <div class="float-lg-end">
-                                        <a href="#" class="btn btn-light"> <i class="fa fa-heart"></i></a>
-                                        <a href="#" class="btn btn-light text-danger"> Remove</a>
+                                        <form method="post" action="{{path('app_delete_item')}}">
+                                            <input type="submit" class="btn btn-light text-danger" value="Remove">
+                                            <input type="hidden" name="remove" value="{{ line.id }}" >
+                                        </form>
+
                                     </div>
                                 </div>
                             </article> <!-- row.// -->
-
-                            <article class="row gy-3 mb-4">
-                                <div class="col-lg-6">
-                                    <figure class="itemside  me-lg-5">
-                                        <div class="aside"><img src="../images/items/2.jpg" class="img-sm border rounded"></div>
-                                        <figcaption class="info">
-                                            <a href="#" class="title mb-1">Canon Cmera EOS 2000, Black color 10x zoom</a>
-                                            <p class="text-muted small"> Color: Black, Memory: 512GB </p>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                                <div class="col-auto">
-                                    <select style="width: 100px" class="form-select">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                    </select>
-                                </div>
-                                <div class="col-lg-2 col-sm-4 col-6">
-                                    <div class="price-wrap lh-sm">
-                                        <var class="price h6">$1156.00</var>  <br>
-                                        <small class="text-muted"> $460.00 / per item </small>
-                                    </div> <!-- price-wrap .// -->
-                                </div>
-                                <div class="col-lg col-sm-4">
-                                    <div class="float-lg-end">
-                                        <a href="#" class="btn btn-light"> <i class="fa fa-heart"></i></a>
-                                        <a href="#" class="btn btn-light text-danger"> Remove</a>
-                                    </div>
-                                </div>
-                            </article> <!-- row.// -->
-
-                            <article class="row gy-3 mb-4">
-                                <div class="col-lg-6">
-                                    <figure class="itemside  me-lg-5">
-                                        <div class="aside"><img src="../images/items/3.jpg" class="img-sm border rounded"></div>
-                                        <figcaption class="info">
-                                            <a href="#" class="title mb-1"></a>
-                                            <p class="text-muted small"> Color: Black, Memory: 512GB </p>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                                <div class="col-auto">
-                                    <select style="width: 100px" class="form-select">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                    </select>
-                                </div>
-                                <div class="col-lg-2 col-sm-4 col-6">
-                                    <div class="price-wrap lh-sm">
-                                        <var class="price h6">$1156.00</var>  <br>
-                                        <small class="text-muted"> $460.00 / per item </small>
-                                    </div> <!-- price-wrap .// -->
-                                </div>
-                                <div class="col-lg col-sm-4">
-                                    <div class="float-lg-end">
-                                        <a href="#" class="btn btn-light"> <i class="fa fa-heart"></i></a>
-                                        <a href="#" class="btn btn-light text-danger"> Remove</a>
-                                    </div>
-                                </div>
-                            </article> <!-- row.// -->
-
+                            {% endfor %}
                         </div> <!-- card-body .// -->
 
                         <div class="card-body border-top">
-                            <p class="mb-0"><i class="me-2 text-success fa fa-truck"></i> Free Delivery within 1-2 weeks</p>
+                            <p class="mb-0"><i class="me-2 text-success fa fa-truck"></i> Envío en 1-2 semanas</p>
                         </div> <!-- card-body.// -->
 
                     </div> <!-- card.// -->
 
                 </div> <!-- col.// -->
                 <aside class="col-lg-3">
-
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <form>
-                                <label class="form-label">Have coupon?</label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" name="" placeholder="Coupon code">
-                                    <button class="btn btn-light">Apply</button>
-                                </div>
-                            </form>
-                        </div> <!-- card-body.// -->
-                    </div> <!-- card.// -->
-
                     <div class="card">
                         <div class="card-body">
                             <dl class="dlist-align">
                                 <dt>Total price:</dt>
-                                <dd class="text-end"> $1403.97</dd>
+                                <dd class="text-end"> {{ cart.totalProductPrice }} €</dd>
                             </dl>
                             <dl class="dlist-align">
-                                <dt>Discount:</dt>
-                                <dd class="text-end text-success"> - $60.00 </dd>
+                                <dt>Descuento:</dt>
+                                <dd class="text-end text-success"> - 0.00 € </dd>
                             </dl>
                             <dl class="dlist-align">
-                                <dt>TAX:</dt>
-                                <dd class="text-end text-danger"> + $14.00 </dd>
+                                <dt>Gastos de envío:</dt>
+                                <dd class="text-end text-danger"> + {{ cart.shippingCost }} € </dd>
                             </dl>
                             <hr>
                             <dl class="dlist-align">
                                 <dt>Total:</dt>
-                                <dd class="text-end text-dark h5"> $1357.97 </dd>
+                                <dd class="text-end text-dark h5"> {{ cart.totalPrice}} €</dd>
                             </dl>
 
                             <div class="d-grid gap-2 my-3">
-                                <a href="#" class="btn btn-primary w-100"> Pagar </a>
+                                <a href="{{ path('app_checkout')}}" class="btn btn-primary w-100"> Pagar </a>
                                 <a href="{{ path('app_home') }}" class="btn btn-light w-100"> Seguir comprando </a>
                             </div>
                         </div> <!-- card-body.// -->

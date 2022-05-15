@@ -30,7 +30,6 @@ class AddItemCommand
         return $this->quantity;
     }
 
-
     /**
      * @return string
      */

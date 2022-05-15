@@ -77,4 +77,16 @@ class CartRepository extends ServiceEntityRepository
     {
         return $this->find($id);
     }
+
+    public function findByIdWithProducts(string $id): ?Cart
+    {
+        return $this->createQueryBuilder('c')
+            ->innerJoin('c.cartLines','cl')
+            ->innerJoin('cl.product','p')
+            ->andWhere('c.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
 }
