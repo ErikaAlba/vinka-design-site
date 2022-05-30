@@ -28,12 +28,6 @@
                             <h4 class="title text-dark text-capitalize">{{ product.name }} <br> Layer Slim Muscle</h4>
 
                             <div class="rating-wrap my-3">
-                                <ul class="rating-stars">
-                                    <li style="width:80%" class="stars-active"> <img src="../images/misc/stars-active.svg" alt=""> </li>
-                                    <li> <img src="../images/misc/starts-disable.svg" alt=""> </li>
-                                </ul>
-                                <b class="label-rating text-warning"> 4.5</b>
-                                <i class="dot"></i>
                                 <span class="label-rating text-muted"> <i class="fa fa-comment"></i> 32 reviews </span>
                                 <i class="dot"></i>
                                 <span class="label-rating text-muted"> <i class="fa fa-shopping-basket"></i> 154 orders</span>
@@ -66,7 +60,7 @@
                             </div>
 
                             <div class="mb-4">
-                                <var class="price h5">98.00€</var>
+                                <var class="price h5">{{ product.priceInDecimal }} €</var>
                                 <span>/ IVA incluido </span>
                             </div> <!-- price-wrap.// -->
 
@@ -81,7 +75,7 @@
                                 <div class="col-auto">
                                     <form method="post" action="{{ path('app_add_item') }}">
                                         <input type="hidden" name="idProduct" value="{{ product.productId }}">
-                                        <input type="submit" value ="Añadir al carrito" class="btn btn-primary w-100"> <i class="me-2 fa fa-shopping-basket"></i></input>
+                                        <input type="submit" value ="Añadir al carrito" class="btn btn-primary w-100">
                                     </form>
                                 </div> <!-- col.// -->
                                 <div class="col">
