@@ -120,28 +120,28 @@
                                         </h2>
                                         <div id="collapseTwo" data-bs-parent="#accordion_payment"
                                              class="accordion-collapse collapse">
-                                            <div class="accordion-body">
-                                                <div class="alert alert-success" role="alert">
-                                                    Ingrese el número de tarjeta
+                                            <div class="accordion-body disabled">
+                                                <div class="alert alert-success " role="alert">
+                                                    Desactivado temporalmente
                                                 </div>
                                                 <!-- payment-form -->
                                                 <div class="row g-2">
                                                     <div class="col-sm-4">
                                                         <label class="form-label">Número</label>
-                                                        <input type="text" class="form-control"
+                                                        <input type="text" class="form-control" disabled
                                                                placeholder="xxxx-xxxx-xxxx-xxxx">
                                                     </div>
                                                     <div class="col-sm-3">
                                                         <label class="form-label">Fecha de expiración</label>
-                                                        <input type="text" class="form-control" placeholder="dd/yy">
+                                                        <input type="text" class="form-control" placeholder="dd/yy" disabled>
                                                     </div>
                                                     <div class="col-sm-2">
                                                         <label class="form-label">CVV</label>
-                                                        <input type="text" class="form-control" placeholder="cvc">
+                                                        <input type="text" class="form-control" placeholder="cvc" disabled>
                                                     </div>
                                                     <div class="col-sm-3">
                                                         <label class="form-label d-block"> &nbsp; </label>
-                                                        <button class="btn btn-success d-block"> Confirmar</button>
+                                                        <button class="btn btn-success d-block disabled"> Confirmar</button>
                                                     </div>
                                                 </div>
                                                 <!-- payment-form .// -->
@@ -188,15 +188,15 @@
                                     </div>
                                     <figcaption class="info lh-sm">
                                         <strong>Orden ID: 2313440</strong> <br>
-                                        <span class="text-muted">Wed, Sept 13, 2021</span>
+                                        <span class="text-muted">{{ "now"|date("d-m-Y") }}</span>
                                     </figcaption>
                                 </figure>
                                 <dl class="dlist-align">
                                     <dt>Metodo de pago:</dt>
-                                    <dd>Visa - - - - 9902</dd>
+                                    <dd>Transferencia bancaria</dd>
                                 </dl>
                                 <dl class="dlist-align">
-                                    <dt>Nombre:</dt>
+                                    <dt>Nombre: {{ cart.user.email }}</dt>
                                     <dd></dd>
                                 </dl>
                                 <dl class="dlist-align">
