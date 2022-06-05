@@ -29,9 +29,9 @@ class HomeController extends AbstractController
     {
         $families = $this->getFamiliesQueryHandler->handle(new GetFamiliesQuery());
 
-        $tocados = $this->getProductListQueryHandler->handle(new GetProductListQuery('tocados',8));
-        $pamelas = $this->getProductListQueryHandler->handle(new GetProductListQuery('pamelas',4));
-        $pajaritas = $this->getProductListQueryHandler->handle(new GetProductListQuery('pajaritas',8));
+        $tocados = $this->getProductListQueryHandler->handle(new GetProductListQuery('tocados',20));
+        $pamelas = $this->getProductListQueryHandler->handle(new GetProductListQuery('pamelas',20));
+        $pajaritas = $this->getProductListQueryHandler->handle(new GetProductListQuery('pajaritas',20));
 
         return $this->render('home/index.html.twig', [
             'families' => $families,
