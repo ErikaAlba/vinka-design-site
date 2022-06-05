@@ -22,6 +22,7 @@ install: ## make composer install
 init: ## create database and execute migrations
 	docker-compose run --rm -u ${UID}:${GID} ${CONTAINER} console doctrine:database:create --if-not-exists
 	docker-compose run --rm -u ${UID}:${GID} ${CONTAINER} console doctrine:migrations:migrate --no-interaction
+	npm install
 	npm run build
 
 fixtures: ## load project fixtures
