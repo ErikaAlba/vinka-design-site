@@ -46,7 +46,7 @@ class Product
     #[ORM\JoinColumn(nullable: false, referencedColumnName: 'family_id')]
     private $family;
 
-    #[ORM\OneToMany(mappedBy: 'product', targetEntity: ProductImage::class)]
+    #[ORM\OneToMany(mappedBy: 'product', targetEntity: ProductImage::class, cascade: ['all'])]
     private $productImages;
 
     #[ORM\Column(type: 'integer')]

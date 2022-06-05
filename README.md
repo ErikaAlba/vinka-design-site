@@ -6,17 +6,20 @@ Aplicaciones necesarias
 - docker 
 - docker-compose
 - npm
+- make
 ``` 
-Para ejecutar el proyecto
+
+Para levantar el proyecto
 ``` 
-- docker-compose build
-- docker-compose up -d
-- docker-compose exec -u ${UID}:${GID} php composer install
-- docker-compose exec -u ${UID}:${GID} php console doctrine:database:create
-- docker-compose exec -u ${UID}:${GID} php console doctrine:migrations:migrate
-- npm run build
+- make start
 ```
-Para acceder con el navegador 
+
+Para crear los datos de prueba
+``` 
+- make fixtures
+```
+
+Para acceder con el navegador
 ``` 
 - localhost:9000 o el puerto que se haya definido en el archivo .env
 - para acceder al admin y dar de alta productos: localhost:9000/admin

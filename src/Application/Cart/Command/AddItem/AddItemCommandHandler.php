@@ -32,7 +32,6 @@ class AddItemCommandHandler
         if ($cart == null) {
             $cart = new Cart($command->getCartId(), $user);
         }
-
         if ($cart->getUser()->getId() != $command->getUserId()) {
             throw new \Exception('user not allowed to add items in this cart');
         }
