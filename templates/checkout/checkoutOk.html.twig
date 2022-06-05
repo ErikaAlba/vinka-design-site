@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CheckoutController!{% endblock %}
+
+{% block body %}
+
+        <section class="padding-y bg-light">
+            <div class="container">
+                <div class="row justify-content-center ">
+                    <h1 class="text-center ">Gracias! Su pedido se ha tramitado correctamente</h1>
+                    <a href="{{ path('app_home') }}">
+                        <button class="btn btn-primary">Volver</button>
+                    </a>
+                </div> <!-- row.// -->
+                <br><br>
+            </div> <!-- container end.//  -->
+        </section>
+
+{% endblock %}

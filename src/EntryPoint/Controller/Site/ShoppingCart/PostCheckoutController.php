@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Uid\UuidV4;
 
 class PostCheckoutController extends AbstractController
 {
@@ -37,6 +38,10 @@ class PostCheckoutController extends AbstractController
                 'Transferencia'
             )
         );
-        return new Response();
+
+        $cartId = UuidV4::v4()->jsonSerialize();
+        $request->getSession()->set('cartId', $cartId);
+
+        return $this->render('checkout/checkoutOk.html.twig');
     }
 }
